@@ -1,1 +1,181 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday!</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        .container {
+            position: relative;
+            z-index: 10;
+            padding: 30px 20px;
+        }
+
+        h1 {
+            color: #d81b60;
+            font-size: 2.3em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            margin-top: 15px;
+        }
+
+        .music-btn {
+            background-color: #e91e63;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 16px;
+            border-radius: 25px;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+
+        .gift-container {
+            margin: 15px auto;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        .gift-box {
+            font-size: 80px;
+            transition: transform 0.3s ease;
+        }
+
+        .gift-box:hover {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .surprise-card {
+            display: none;
+            background: white;
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            max-width: 380px;
+            margin: 20px auto;
+            text-align: left;
+            animation: popIn 0.5s ease;
+        }
+
+        .surprise-card h2 {
+            color: #e91e63;
+            text-align: center;
+            margin-top: 0;
+        }
+
+        .surprise-card p {
+            font-size: 15px;
+            color: #444;
+            line-height: 1.6;
+            margin-bottom: 12px;
+        }
+
+        @keyframes popIn {
+            0% { transform: scale(0); }
+            100% { transform: scale(1); }
+        }
+
+        .balloon {
+            position: absolute;
+            bottom: -100px;
+            width: 50px;
+            height: 70px;
+            border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%;
+            opacity: 0.8;
+            animation: floatUp 8s infinite ease-in;
+            z-index: 1;
+        }
+
+        .balloon::after {
+            content: "";
+            position: absolute;
+            bottom: -12px;
+            left: 23px;
+            width: 2px;
+            height: 15px;
+            background: #888;
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-120vh) rotate(20deg); opacity: 0; }
+        }
+
+        .b1 { left: 10%; background: #ff4081; animation-duration: 7s; }
+        .b2 { left: 30%; background: #7c4dff; animation-duration: 9s; animation-delay: 1s; }
+        .b3 { left: 50%; background: #00e676; animation-duration: 6s; animation-delay: 2s; }
+        .b4 { left: 70%; background: #ffab00; animation-duration: 8s; animation-delay: 0.5s; }
+        .b5 { left: 85%; background: #00b0ff; animation-duration: 10s; animation-delay: 1.5s; }
+    </style>
+</head>
+<body>
+
+    <div class="balloon b1"></div>
+    <div class="balloon b2"></div>
+    <div class="balloon b3"></div>
+    <div class="balloon b4"></div>
+    <div class="balloon b5"></div>
+
+    <div class="container">
+        <h1>🎉 Happy Birthday! 🎂</h1>
+        
+        <button class="music-btn" onclick="toggleMusic()">🎵 Play / Pause Song</button>
+        <audio id="bgMusic" loop>
+            <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+        </audio>
+
+        <div class="gift-container" onclick="openGift()">
+            <p style="color: #555; font-weight: bold; margin-bottom: 5px;">Tap on the gift box to open! 👇</p>
+            <div class="gift-box" id="giftIcon">🎁</div>
+        </div>
+
+        <div class="surprise-card" id="surpriseCard">
+            <h2>✨ Happy Birthday My Love! ✨</h2>
+            
+            <p>Happy Birthday to the most genuine, loving, and precious person in my life! 🎂✨ Aaj ke daur me jab sacche log milna itna mushkil hai, tab mujhe aapki jaisi dosti aur aapka yeh pyaar mila, yeh mere liye sabse badi blessing hai. Aap ek aise insaan hain jinki presence hi meri life me ek alag hi sukoon aur khushi le aati hai.</p>
+
+            <p>Hum dono ne sath me jo bhi waqt bitaya hai, jo baatein ki hain, wo saari yaadein mere dil ke sabse kareeb aur bohot zyada keemti hain. Jab bhi mai pareshan hoti hoon ya life me low feel karti hoon, aapka hamesha mere sath khade rehna aur mujhe sambhalna mere liye sab kuch hai.</p>
+
+            <p>Aapki sabse pyaari baat ye hai ki aap itne pure-hearted hain—no fake filters, no drama. Ek sacche dost aur partner ki tarah aapne mujhe hamesha appreciate kiya, meri har choti khushi ka dhyan rakha, aur hamesha mujhe ek behtar insaan banaya. Aapki isi sachai aur care ki wajah se mere dil me aapke liye behad respect aur beintehaa pyaar hai. Aap sirf meri life ka hissa nahi hain, aap mera sukoon hain. Aapka meri life me hona hi mere liye sabse precious gift hai.</p>
+
+            <p>Bhagwan se yahi dua hai ki aapka ye naya saal bohot saari khushiyan, badi success aur bohot acchi health lekar aaye. Aap jo bhi achieve karna chahte hain, wo sab aapko mile kyunki aap duniya ki har ek khushi deserve karte hain. Hamesha aise hi strong, humble aur pyaare rehna. Have an incredible birthday, my love! Stay blessed hamesha! 🥂👑❤️</p>
+        </div>
+    </div>
+
+    <script>
+        function openGift() {
+            var card = document.getElementById("surpriseCard");
+            var gift = document.getElementById("giftIcon");
+            
+            if (card.style.display === "block") {
+                card.style.display = "none";
+                gift.innerHTML = "🎁";
+            } else {
+                card.style.display = "block";
+                gift.innerHTML = "🎉";
+            }
+        }
+
+        function toggleMusic() {
+            var music = document.getElementById("bgMusic");
+            if (music.paused) {
+                music.play();
+            } else {
+                music.pause();
+            }
+        }
+    </script>
+</body>
+</html>
 
