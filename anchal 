@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday Surprise!</title>
+  <!-- Canvas Confetti for Birthday Blast Effect -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: linear-gradient(135deg, #ffd1dc, #e0c3fc);
+      font-family: 'Poppins', sans-serif, Arial;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      overflow: hidden;
+    }
+
+    /* Floating Hearts Background Animation */
+    .bg-heart {
+      position: absolute;
+      color: rgba(255, 182, 193, 0.6);
+      font-size: 24px;
+      animation: floatUp 6s linear infinite;
+      z-index: 1;
+      bottom: -10%;
+    }
+
+    @keyframes floatUp {
+      0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
+    }
+
+    .container {
+      position: relative;
+      width: 90%;
+      max-width: 380px;
+      height: 520px;
+      z-index: 10;
+      cursor: pointer;
+    }
+
+    .card {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: #ffffff;
+      border-radius: 20px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 15px;
+      transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      user-select: none;
+      border: 4px solid #fff;
+    }
+
+    .card img {
+      width: 100%;
+      height: 82%;
+      object-fit: contain;
+      border-radius: 12px;
+    }
+
+    /* Smooth Hide Animation */
+    .card.hidden {
+      opacity: 0;
+      transform: scale(0.7) translateY(-80px) rotate(-10deg);
+      pointer-events: none;
+    }
+
+    .tap-hint {
+      margin-top: 15px;
+      font-size: 16px;
+      color: #ff4757;
+      font-weight: 600;
+      animation: bounce 1.2s infinite;
+      text-align: center;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating Hearts in Background -->
+  <div class="bg-heart" style="left: 10%; animation-delay: 0s;">❤️</div>
+  <div class="bg-heart" style="left: 30%; animation-delay: 2s;">💖</div>
+  <div class="bg-heart" style="left: 60%; animation-delay: 1s;">✨</div>
+  <div class="bg-heart" style="left: 85%; animation-delay: 3s;">🎂</div>
+
+  <div class="container" id="cardContainer">
+    
+    <!-- 🎂 DUSRI PHOTO (Cake Image) -->
+    <div class="card" id="card2">
+      <!-- Direct SVG Graphic for Cute Birthday Cake -->
+      <svg viewBox="0 0 400 400" width="100%" height="82%">
+        <rect width="100%" height="100%" fill="#c1b2db" rx="12"/>
+        <g transform="translate(100, 80)">
+          <!-- Top Tier -->
+          <path d="M 40 100 Q 100 80 160 100 L 160 150 Q 100 170 40 150 Z" fill="#ffaec9" stroke="#000" stroke-width="4"/>
+          <circle cx="100" cy="70" r="16" fill="#ff3b30"/>
+          <path d="M 100 54 Q 105 45 110 50" stroke="#000" stroke-width="3" fill="none"/>
+          <!-- Eyes & Smile -->
+          <circle cx="80" cy="120" r="5" fill="#000"/>
+          <circle cx="120" cy="120" r="5" fill="#000"/>
+          <path d="M 92 130 Q 100 140 108 130" stroke="#000" stroke-width="3" fill="none"/>
+          
+          <!-- Bottom Tier -->
+          <path d="M 20 150 Q 100 130 180 150 L 180 230 Q 100 250 20 230 Z" fill="#ffcca0" stroke="#000" stroke-width="4"/>
+          <!-- Blueberries -->
+          <circle cx="45" cy="155" r="8" fill="#8860a8" stroke="#000" stroke-width="2"/>
+          <circle cx="70" cy="160" r="8" fill="#8860a8" stroke="#000" stroke-width="2"/>
+          <circle cx="100" cy="162" r="8" fill="#8860a8" stroke="#000" stroke-width="2"/>
+          <circle cx="130" cy="160" r="8" fill="#8860a8" stroke="#000" stroke-width="2"/>
+          <circle cx="155" cy="155" r="8" fill="#8860a8" stroke="#000" stroke-width="2"/>
+          <!-- Eyes & Smile -->
+          <circle cx="75" cy="195" r="6" fill="#000"/>
+          <circle cx="125" cy="195" r="6" fill="#000"/>
+          <ellipse cx="65" cy="202" rx="6" ry="4" fill="#ff85a2"/>
+          <ellipse cx="135" cy="202" rx="6" ry="4" fill="#ff85a2"/>
+          <path d="M 90 205 Q 100 218 110 205" stroke="#000" stroke-width="3" fill="none"/>
+          <!-- Plate -->
+          <ellipse cx="100" cy="240" rx="100" ry="15" fill="#e8f4f8" stroke="#000" stroke-width="4"/>
+        </g>
+      </svg>
+      <div class="tap-hint">✨ Happy Birthday! 🎉 <br><span style="font-size:12px; color:#666;">(Tap to view again)</span></div>
+    </div>
+
+    <!-- 🐱 PEHLI PHOTO (Cat Image) -->
+    <div class="card" id="card1">
+      <!-- Direct SVG Graphic for Cute Cat Design -->
+      <svg viewBox="0 0 400 300" width="100%" height="82%">
+        <rect width="100%" height="100%" fill="#ffffff" rx="12"/>
+        <!-- Speech Bubble -->
+        <g transform="translate(60, 40)">
+          <ellipse cx="60" cy="40" rx="50" ry="30" fill="#fff" stroke="#000" stroke-width="2"/>
+          <path d="M 90 60 L 110 75 L 80 68 Z" fill="#fff" stroke="#000" stroke-width="2"/>
+          <text x="25" y="45" font-family="sans-serif" font-size="14" font-weight="bold" fill="#000">where is</text>
+          <text x="22" y="60" font-family="sans-serif" font-size="14" font-weight="bold" fill="#000">the cake?</text>
+        </g>
+        <!-- Cat coming out of paper -->
+        <g transform="translate(140, 90)">
+          <!-- Torn Paper Effect -->
+          <polygon points="20,70 40,40 70,80 110,40 140,75 160,50 170,120 20,120" fill="#f0f0f0" stroke="#ccc" stroke-width="2"/>
+          <!-- Cat Head -->
+          <ellipse cx="100" cy="70" rx="45" ry="38" fill="#b57c46"/>
+          <!-- Ears -->
+          <polygon points="65,40 55,10 80,30" fill="#b57c46" stroke="#000" stroke-width="2"/>
+          <polygon points="135,40 145,10 120,30" fill="#b57c46" stroke="#000" stroke-width="2"/>
+          <!-- Eyes -->
+          <circle cx="82" cy="65" r="10" fill="#ffb703" stroke="#000" stroke-width="2"/>
+          <circle cx="82" cy="65" r="4" fill="#000"/>
+          <circle cx="118" cy="65" r="10" fill="#ffb703" stroke="#000" stroke-width="2"/>
+          <circle cx="118" cy="65" r="4" fill="#000"/>
+          <!-- Nose & Paw -->
+          <polygon points="100,75 95,80 105,80" fill="#ff85a2"/>
+          <ellipse cx="60" cy="95" rx="15" ry="10" fill="#b57c46" stroke="#000" stroke-width="2"/>
+        </g>
+        <!-- Text -->
+        <text x="80" y="260" font-family="'Brush Script MT', cursive, sans-serif" font-size="36" fill="#000">happy birthday</text>
+      </svg>
+      <div class="tap-hint">👉 Tap to reveal cake! 👈</div>
+    </div>
+
+  </div>
+
+  <script>
+    const card1 = document.getElementById('card1');
+    const container = document.getElementById('cardContainer');
+
+    container.addEventListener('click', function() {
+      if (!card1.classList.contains('hidden')) {
+        // Hide first card
+        card1.classList.add('hidden');
+
+        // Confetti Blast Effect
+        confetti({
+          particleCount: 120,
+          spread: 70,
+          origin: { y: 0.6 }
+        });
+      } else {
+        // Show first card again on tap
+        card1.classList.remove('hidden');
+      }
+    });
+  </script>
+
+</body>
+</html>
