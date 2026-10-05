@@ -1,0 +1,52 @@
+<!-- CAKE SCREEN -->
+<section id="cakeScreen" class="scene">
+
+    <h1>🎁 Surprise! 🎂</h1>
+
+    <div class="cake-area">
+
+        <!-- Cake Image -->
+        <img 
+            src="cake.jpg"
+            class="cake"
+            alt="Birthday Cake"
+        >
+
+        <!-- Small Letter -->
+        <div 
+            class="letter"
+            onclick="openLetter()"
+        >
+            💌
+        </div>
+
+    </div>
+
+    <p>
+        Cake ke side mein ek chhota sa letter hai 💌
+    </p>
+
+    <p class="small">
+        Letter ko open karne ke liye tap karo
+    </p>
+
+    <button onclick="show('giftScreen')" class="back">
+        ← Back
+    </button>
+
+</section>
+
+
+<!-- LETTER SCREEN -->
+<section id="letterScreen" class="scene">
+
+    <div class="letter-big">
+        💌
+    </div>
+
+    <h1>
+        Ek chhoti si baat hai 💗
+    </h1>
+
+    <p>
+        Kya tum birthday message dekhna chah
